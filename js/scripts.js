@@ -169,7 +169,7 @@ $(document).ready(function () {
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Sept 28, 2024 10:00'),
+            end: new Date('Sept 28, 2024 12:00'),
 
             // Event Address
             address: '5136 N Nottingham Ave, Chicago, IL 60656',
@@ -217,8 +217,7 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        if (MD5($('#invite_code').val()) !== 'f8f235136f525e39e94f401424954c3a') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
             $.post('https://script.google.com/macros/s/AKfycbwXEHrsdDJLMGhjmMCG-OWB-hP-_mCN92TxYyF8ynWIVOH2wKwijI564tH4uaCrPFA/exec', data)
