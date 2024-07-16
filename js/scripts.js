@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    /********************** Embed youtube video *********************/
+    $('.player').YTPlayer();
+    
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -136,10 +139,6 @@ $(document).ready(function () {
 
     });
 
-    /********************** Embed youtube video *********************/
-    $('.player').YTPlayer();
-
-
     /********************** Toggle Map Content **********************/
     $('#btn-show-map').click(function () {
         $('#map-content').toggleClass('toggle-map-content');
@@ -217,10 +216,7 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'f8f235136f525e39e94f401424954c3a') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbwXEHrsdDJLMGhjmMCG-OWB-hP-_mCN92TxYyF8ynWIVOH2wKwijI564tH4uaCrPFA/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycbwXEHrsdDJLMGhjmMCG-OWB-hP-_mCN92TxYyF8ynWIVOH2wKwijI564tH4uaCrPFA/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -234,7 +230,6 @@ $(document).ready(function () {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
-        }
     });
 
 });
