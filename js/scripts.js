@@ -158,7 +158,7 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Karolina and David's Church Ceremony",
+            title: "Karolina and David's Wedding Ceremony",
 
             // Event start date
             start: new Date('Sept 28, 2024 12:00'),
@@ -185,7 +185,7 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Karolina and David's Wedding Ceremony",
+            title: "Karolina and David's Wedding Reception",
 
             // Event start date
             start: new Date('Sept 28, 2024 18:00'),
