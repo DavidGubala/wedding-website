@@ -188,7 +188,7 @@ $(document).ready(function () {
             title: "Karolina and David's Wedding Reception",
 
             // Event start date
-            start: new Date('Sept 28, 2024 18:00'),
+            start: new Date('Sept 28, 2024 18:30'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
@@ -234,6 +234,9 @@ $(document).ready(function () {
                 });
     });
 
+    $('input[type="checkbox"]').on('change', function() {
+      $('input[type="checkbox"]').not(this).prop('checked', false);
+   });
 });
 
 /********************** Extras **********************/
@@ -245,17 +248,18 @@ function initMap() {
     
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         scrollwheel: false,
+        mapId: "WEDDING_MAP_ID",
     });
 
     var bounds = new google.maps.LatLngBounds();
-    var markerWedding = new google.maps.Marker({
+    var markerWedding = new google.maps.marker.AdvancedMarkerElement({
         position: LocationWedding,
         map: map
     });
     var pt = new google.maps.LatLng(41.97084055944911, -87.861115601433);
     bounds.extend(pt);
 
-    var markerChurch = new google.maps.Marker({
+    var markerChurch = new google.maps.marker.AdvancedMarkerElement({
         position: locationChurch,
         map: map
     });

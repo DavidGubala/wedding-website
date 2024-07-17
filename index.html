@@ -280,40 +280,13 @@
                 <div class="wp6">
 
                     <p><strong>Reception to follow in the evening:</strong></p> 
-                    <h5>Allegra Banquets<span class="time"> 6 o'clock in the evening</span></h5>
+                    <h5>Allegra Banquets<span class="time"> 6:30 in the evening</span></h5>
                     <p>5035 N River Rd, Schiller Park </p>
                 </div>
             </div>
         </div>
-        <div class="row section-padding">
-            <div class="col-md-4 col-md-offset-4 text-center">
-                <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
-                    <i class="fa fa-barcode"></i>&nbsp;&nbsp;Dress code
-                </a>
-            </div>
-        </div>
       </div>
         
-    </div>
-
-    
-
-    <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
-                    <h3 class="text-center section-padding">Ugh... dress codes?</h3>
-                  
-                    <p>
-                       Just dress your best, but don't wear white! 
-                    </p>
-                
-                
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
     </div>
 </section>
 
@@ -322,7 +295,7 @@
       <h3>How do I get there?</h3>
       <p>It's way easier than you think!</p>
   </div>
-  <div id="map-canvas"></div>
+  <div id="map-canvas" loading=async></div>
   <div id="map-content-wrapper" class="container pointer-events-none">
     
     <div class="col">
@@ -484,47 +457,52 @@
                 <form id="rsvp-form" class="rsvp-form"
                       action=""
                       method="POST">
+
+                      
                     <div class="row">
-                        <!-- <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     >
-                            </div>
-                        </div> -->
-                        <div class="col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
+                      <div class="col-md-12">
+                        <div class="row checkbox-section">
+                          <input type="checkbox" id="attending" name="attending" value="Yes"/>
+                          <label for="attending">Yes, I can't wait to celebrate!</label>
                         </div>
+                      
+                        <div class="row checkbox-section">
+                          <input type="checkbox" id="notattending" name="attending" value="No"/>
+                          <label for="notattending">Sorry, will toast from afar</label>
+                        </div>
+                      </div>
                     </div>
+
+                    
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Guest Names"
-                                                                  required>
-                            </div>
+                      <div class="col-md-12">
+                        <div class="form-input-group">
+                          <i class="fa fa-users"></i><input type="number" name="guest_amount" id="guests"
+                                                          class="" min="0"
+                                                          placeholder="Number of Guests"
+                                                          required>
                         </div>
-                        <!-- <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
-                            </div>
-                        </div> -->
+                      </div>
                     </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-input-group">
+                            <i class="fa fa-users"></i><input name="guest_names" class=""
+                                                              placeholder="Name of guest(s)"
+                                                              required>
+                        </div>
+                      </div>
+                    </div>
+
+                    
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
                     <button class="btn-fill rsvp-btn">
                         RSVP now!
                     </button>
-                </form>
+              </form>
             </div>
         </div>
       </div>
@@ -549,8 +527,8 @@
 <script src="js/jquery.mb.YTPlayer.min.js"></script>
 <script src="js/vendor/ouical.js"></script>
 <script src="js/scripts.min.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl2uTyFJOWfcNFC3pHu74kZb1I4a5bt1A&callback=initMap"></script>
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl2uTyFJOWfcNFC3pHu74kZb1I4a5bt1A&loading=async&callback=initMap&libraries=marker"></script>
 <!-- Google Analytics -->
 <script>
     (function (i, s, o, g, r, a, m) {
